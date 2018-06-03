@@ -1,0 +1,690 @@
+<commands>
+	<category name="GENERAL">
+		<command name="exit" info="you can exit from the machine learning environment">
+		</command>
+		<command name="help" info="Displays all commands available in the NLPTOOLKIT environment.">
+		</command>
+		<command name="helpAbout" info="Displays help about a specific command available in the NLPTOOLKIT environment.">
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="command name"/>
+			</inputparameters>
+		</command>
+		<command name="search" info="Searches given string value in the command list">
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="stringval"/>
+			</inputparameters>
+		</command>
+	</category>
+	<category name="DATASET">
+		<command name="dataDirectory" info="you can set the data directory. Data directory is the directory where each dataset is placed in its own directory">
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="directory"/>
+			</inputparameters>
+		</command>
+		<command name="loadDataSets" info="You can load the datasets.">
+		</command>
+		<command name="dataSet" info="you can view the dataset properties">
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="dataset name"/>
+			</inputparameters>
+		</command>
+		<command name="dataSets" info="Displays all of the available datasets">
+		</command>
+		<command name="classCount" info="Returns number of classes in the dataset">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="integerval" info="number of classes"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="dataset name"/>
+			</inputparameters>
+		</command>
+		<command name="sampleSize" info="Returns number of instances in the dataset">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="integerval" info="number of instances"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="dataset name"/>
+			</inputparameters>
+		</command>
+		<command name="attributeCount" info="Returns number of attribute in the dataset">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="integerval" info="number of attributes"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="dataset name"/>
+			</inputparameters>
+		</command>
+		<command name="discreteAttributeCount" info="Returns number of discrete attributes in the dataset">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="integerval" info="number of discrete attributes"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="dataset name"/>
+			</inputparameters>
+		</command>
+		<command name="continuousAttributeCount" info="Returns number of continuous attributes in the dataset">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="integerval" info="number of continuous attributes"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="dataset name"/>
+			</inputparameters>
+		</command>
+		<command name="unloadDataSets" info="You are able to free all datasets that has been loaded">
+		</command>
+		<command name="classes" info="Returns classes in the dataset as a string">
+			<outputparameters>
+				<outputparameter name="sout1" parametertype="stringval" info="classes separated with ;"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="dataset name"/>
+			</inputparameters>
+		</command>
+	</category>
+	<category name="PARAMETER">
+		<command name="randomSeed" info="Sets the random number generator's seed">
+			<inputparameters>
+				<inputparameter parametertype="integerval" info="new seed"/>
+			</inputparameters>
+		</command>
+		<command name="crossValidationRatio" info="you can set the percent of the cross-validation data">
+			<inputparameters>
+				<inputparameter parametertype="realval" info="number between 0 and 1"/>
+			</inputparameters>
+		</command>
+		<command name="learningRate" info="Set the learning rate of a gradient learning algorithm">
+			<inputparameters>
+				<inputparameter parametertype="realval" info="number between 0 and 1"/>
+			</inputparameters>
+		</command>
+		<command name="epoch" info="Sets the number of runs of a gradient learning algorithm">
+			<inputparameters>
+				<inputparameter parametertype="integerval" info="number of epochs in perceptron"/>
+			</inputparameters>
+		</command>
+		<command name="varianceExplained" info="">
+			<inputparameters>
+				<inputparameter parametertype="realval" info="number between 0 and 1"/>
+			</inputparameters>
+		</command>
+		<command name="dimensionReductionType" info="">
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="feature to reduce to a specific number of features, variance to reduce a given variance explained"/>
+			</inputparameters>
+		</command>
+		<command name="testType" info="Changes the active test type">
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="testname"/>
+			</inputparameters>
+		</command>
+		<command name="distanceMetric" info="Changes the distance evaluation metric">
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="distance metric, euclidian or mahalanobis"/>
+			</inputparameters>
+		</command>
+		<command name="oneTailed" info="If on, comparison tests like ttest, cv-t-test etc. done according to one tailed test. If off, according to two tailed">
+			<inputparameters>
+				<inputparameter parametertype="onoff" info="on or off"/>
+			</inputparameters>
+		</command>
+		<command name="numberOfFolds" info="Sets number of folds in training. For example if you want to make 5 times 2 crossvalidation set foldcount to 2, if you want to make 10 fold crossvalidation set foldcount to 10.">
+			<inputparameters>
+				<inputparameter parametertype="integerval" info="number of folds"/>
+			</inputparameters>
+		</command>
+		<command name="numberOfRuns" info="Sets number of runs in training. For example if you want to make 5 times 2 crossvalidation set runcount to 5, if you want to make 10 fold crossvalidation set runcount to 1.">
+			<inputparameters>
+				<inputparameter parametertype="integerval" info="number of runs"/>
+			</inputparameters>
+		</command>
+		<command name="displayAccuracy" info="If accuracy is on, displays the accuracy results of the algorithms otherwise displays error rates of the algorithms">
+			<inputparameters>
+				<inputparameter parametertype="onoff" info="on or off"/>
+			</inputparameters>
+		</command>
+		<command name="hiddenNodes" info="Sets number of nodes in the hidden layers">
+			<inputparameters>
+				<inputparameter parametertype="integervaln" info="number of hidden nodes in hidden layer 1 ... hiddenlayers number of hidden nodes in hidden layer k"/>
+			</inputparameters>
+		</command>
+		<command name="neighborCount" info="Sets number of nearest neighbors">
+			<inputparameters>
+				<inputparameter parametertype="integerval" info="integer"/>
+			</inputparameters>
+		</command>
+		<command name="confidenceLevel" info="Sets the confidence level for statistical tests">
+			<inputparameters>
+				<inputparameter parametertype="realval" info="confidence level such as 0.05"/>
+			</inputparameters>
+		</command>
+		<command name="etaDecrease" info="Sets the eta multiplier value">
+			<inputparameters>
+				<inputparameter parametertype="realval" info="number between 0 and 1"/>
+			</inputparameters>
+		</command>
+		<command name="kernelType" info="Sets the kernel type of SVM">
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="linear, polynom, rbf or sigmoid"/>
+			</inputparameters>
+		</command>
+		<command name="polynomDegree" info="Sets the degree of the polynomial kernel in SVM">
+			<inputparameters>
+				<inputparameter parametertype="integerval" info="degree of the polynom kernel for SVM"/>
+			</inputparameters>
+		</command>
+		<command name="svmGamma" info="Sets the gamma parameter of the polynomial kernel in SVM">
+			<inputparameters>
+				<inputparameter parametertype="realval" info="gamma parameter for polynomial kernel in SVM"/>
+			</inputparameters>
+		</command>
+		<command name="svmCoef0" info="Sets the coef0 parameter of the polynomial kernel in SVM">
+			<inputparameters>
+				<inputparameter parametertype="realval" info="coef0 parameter for polynomial kernel in SVM"/>
+			</inputparameters>
+		</command>
+		<command name="svmC"  info="Sets the C parameter in C-SVM">
+			<inputparameters>
+				<inputparameter parametertype="realval" info="C parameter in C-SVM"/>
+			</inputparameters>
+		</command>
+		<command name="featureSize" info="Sets the number of random features in the random forest and random subspace algorithms">
+			<inputparameters>
+				<inputparameter parametertype="integerval" info="number of features"/>
+			</inputparameters>
+		</command>
+		<command name="ensembleSize" info="Sets the number of decision trees in the random forest algorithm">
+			<inputparameters>
+				<inputparameter parametertype="integerval" info="number of decision trees"/>
+			</inputparameters>
+		</command>
+	</category>
+	<category name="CLASSIFICATION_ALGORITHMS">
+		<command name="dummy" info="Dummy assigns each instance to the class with the maximum prior probability">
+			<outputparameters>
+				<outputparameter name="aout1" parametertype="stringvaln" info="performance of the algorithm"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="dataset name"/>
+				<inputparameter parametertype="stringval" info="cv or bootstrap"/>
+				<inputparameter parametertype="integerval" info="Seed value"/>
+			</inputparameters>
+		</command>
+		<command name="randomClassifier" info="Random classifier assigns each instance to a random class">
+			<outputparameters>
+				<outputparameter name="aout1" parametertype="stringvaln" info="performance of the algorithm"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="dataset name"/>
+				<inputparameter parametertype="stringval" info="cv or bootstrap"/>
+				<inputparameter parametertype="integerval" info="Seed value"/>
+			</inputparameters>
+		</command>
+		<command name="knn" info="Train k nearest neighbor algorithm for classification">
+			<outputparameters>
+				<outputparameter name="aout1" parametertype="stringvaln" info="performance of the algorithm"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="dataset name"/>
+				<inputparameter parametertype="stringval" info="cv or bootstrap"/>
+				<inputparameter parametertype="integerval" info="Seed value"/>
+			</inputparameters>
+		</command>
+		<command name="c45" info="Trains C4.5 decision tree learning algorithm (Quinlan, 93)">
+			<outputparameters>
+				<outputparameter name="aout1" parametertype="stringvaln" info="performance of the algorithm"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="dataset name"/>
+				<inputparameter parametertype="stringval" info="cv or bootstrap"/>
+				<inputparameter parametertype="integerval" info="Seed value"/>
+			</inputparameters>
+		</command>
+		<command name="rocchio" info="You can make nearest mean classification">
+			<outputparameters>
+				<outputparameter name="aout1" parametertype="stringvaln" info="performance of the algorithm"/>
+			</outputparameters>
+            <inputparameters>
+                <inputparameter parametertype="stringval" info="dataset name"/>
+                <inputparameter parametertype="stringval" info="cv or bootstrap"/>
+                <inputparameter parametertype="integerval" info="Seed value"/>
+            </inputparameters>
+		</command>
+		<command name="lda" info="You can make classification using Fisher's linear discriminant analysis with equal covariance matrices">
+			<outputparameters>
+				<outputparameter name="aout1" parametertype="stringvaln" info="performance of the algorithm"/>
+			</outputparameters>
+            <inputparameters>
+                <inputparameter parametertype="stringval" info="dataset name"/>
+                <inputparameter parametertype="stringval" info="cv or bootstrap"/>
+                <inputparameter parametertype="integerval" info="Seed value"/>
+            </inputparameters>
+		</command>
+		<command name="deepNetwork" info="Learns using Deep Network algorithm">
+			<outputparameters>
+				<outputparameter name="aout1" parametertype="stringvaln" info="performance of the algorithm"/>
+			</outputparameters>
+            <inputparameters>
+                <inputparameter parametertype="stringval" info="dataset name"/>
+                <inputparameter parametertype="stringval" info="cv or bootstrap"/>
+                <inputparameter parametertype="integerval" info="Seed value"/>
+            </inputparameters>
+		</command>
+		<command name="linearPerceptron" info="Learns using linear perceptron algorithm">
+			<outputparameters>
+				<outputparameter name="aout1" parametertype="stringvaln" info="performance of the algorithm"/>
+			</outputparameters>
+            <inputparameters>
+                <inputparameter parametertype="stringval" info="dataset name"/>
+                <inputparameter parametertype="stringval" info="cv or bootstrap"/>
+                <inputparameter parametertype="integerval" info="Seed value"/>
+            </inputparameters>
+		</command>
+		<command name="multiLayerPerceptron" info="Learns using multi layer perceptron algorithm">
+			<outputparameters>
+				<outputparameter name="aout1" parametertype="stringvaln" info="performance of the algorithm"/>
+			</outputparameters>
+            <inputparameters>
+                <inputparameter parametertype="stringval" info="dataset name"/>
+                <inputparameter parametertype="stringval" info="cv or bootstrap"/>
+                <inputparameter parametertype="integerval" info="Seed value"/>
+            </inputparameters>
+		</command>
+		<command name="svm" info="Runs the C-SVM algorithm">
+			<outputparameters>
+				<outputparameter name="aout1" parametertype="stringvaln" info="performance of the algorithm"/>
+			</outputparameters>
+            <inputparameters>
+                <inputparameter parametertype="stringval" info="dataset name"/>
+                <inputparameter parametertype="stringval" info="cv or bootstrap"/>
+                <inputparameter parametertype="integerval" info="Seed value"/>
+            </inputparameters>
+		</command>
+		<command name="qda" info="Learns using Quadratic Discriminant Analysis algorithm.">
+			<outputparameters>
+				<outputparameter name="aout1" parametertype="stringvaln" info="performance of the algorithm"/>
+			</outputparameters>
+            <inputparameters>
+                <inputparameter parametertype="stringval" info="dataset name"/>
+                <inputparameter parametertype="stringval" info="cv or bootstrap"/>
+                <inputparameter parametertype="integerval" info="Seed value"/>
+            </inputparameters>
+		</command>
+		<command name="naiveBayes" info="Learns using standard Naive Bayes algorithm.">
+			<outputparameters>
+				<outputparameter name="aout1" parametertype="stringvaln" info="performance of the algorithm"/>
+			</outputparameters>
+            <inputparameters>
+                <inputparameter parametertype="stringval" info="dataset name"/>
+                <inputparameter parametertype="stringval" info="cv or bootstrap"/>
+                <inputparameter parametertype="integerval" info="Seed value"/>
+            </inputparameters>
+		</command>
+		<command name="randomForest" info="Trains Random Forest learning algorithm">
+			<outputparameters>
+				<outputparameter name="aout1" parametertype="stringvaln" info="performance of the algorithm"/>
+			</outputparameters>
+            <inputparameters>
+                <inputparameter parametertype="stringval" info="dataset name"/>
+                <inputparameter parametertype="stringval" info="cv or bootstrap"/>
+                <inputparameter parametertype="integerval" info="Seed value"/>
+            </inputparameters>
+		</command>
+		<command name="bagging" info="Trains Bagging learning algorithm">
+			<outputparameters>
+				<outputparameter name="aout1" parametertype="stringvaln" info="performance of the algorithm"/>
+			</outputparameters>
+            <inputparameters>
+                <inputparameter parametertype="stringval" info="dataset name"/>
+                <inputparameter parametertype="stringval" info="cv or bootstrap"/>
+                <inputparameter parametertype="integerval" info="Seed value"/>
+            </inputparameters>
+		</command>
+	</category>
+	<category name="DIMENSION_REDUCTION_ALGORITHMS">
+		<command name="pca" info="Applies PCA on the dataset.">
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="dataset name"/>
+			</inputparameters>
+		</command>
+	</category>
+	<category name="LANGUAGE">
+		<command name="integer" info="Declares a variable of type integer">
+			<inputparameters>
+				<inputparameter parametertype="stringvaln" info="variable name"/>
+			</inputparameters>
+		</command>
+		<command name="real" info="Declares a variable of type real">
+			<inputparameters>
+				<inputparameter parametertype="stringvaln" info="variable name"/>
+			</inputparameters>
+		</command>
+		<command name="string" info="Declares a variable of type string">
+			<inputparameters>
+				<inputparameter parametertype="stringvaln" info="variable name"/>
+			</inputparameters>
+		</command>
+		<command name="file" info="Declares a variable of type file">
+			<inputparameters>
+				<inputparameter parametertype="stringvaln" info="variable name"/>
+			</inputparameters>
+		</command>
+		<command name="variables" info="Displays all variables information">
+		</command>
+		<command name="for" info="Starts a for loop with the given variable with the given starting, ending and step value">
+			<inputparameters>
+				<inputparameter parametertype="integervar" info="variable name"/>
+				<inputparameter parametertype="integerval" info="start"/>
+				<inputparameter parametertype="integerval" info="end"/>
+			</inputparameters>
+		</command>
+		<command name="endfor" info="End a for loop with the given variable name">
+			<inputparameters>
+				<inputparameter parametertype="integervar" info="variable name"/>
+			</inputparameters>
+		</command>
+		<command name="switch" info="Starts a switch statement">
+			<inputparameters>
+				<inputparameter parametertype="anyvar" info="variable name"/>
+			</inputparameters>
+		</command>
+		<command name="endswitch" info="Ends a switch statement">
+		</command>
+		<command name="case" info="Starts a case of the switch">
+			<inputparameters>
+				<inputparameter parametertype="integerval" info="value"/>
+			</inputparameters>
+		</command>
+        <command name="=" info="Sets a value for a new or an old variable">
+            <inputparameters>
+                <inputparameter parametertype="anyvar" info="variable name"/>
+                <inputparameter parametertype="stringval" info="value"/>
+            </inputparameters>
+        </command>
+		<command name="++" info="Increments variable by one">
+			<inputparameters>
+				<inputparameter parametertype="continuousvar" info="variable name"/>
+			</inputparameters>
+		</command>
+		<command name="inc" info="Increments variable by one">
+			<inputparameters>
+				<inputparameter parametertype="continuousvar" info="variable name"/>
+			</inputparameters>
+		</command>
+		<command name="--" info="Decrements variable by one">
+			<inputparameters>
+				<inputparameter parametertype="continuousvar" info="variable name"/>
+			</inputparameters>
+		</command>
+		<command name="dec" info="Decrements variable by one">
+			<inputparameters>
+				<inputparameter parametertype="continuousvar" info="variable name"/>
+			</inputparameters>
+		</command>
+		<command name="+=" info="Increments variable by a given value">
+			<inputparameters>
+				<inputparameter parametertype="continuousvar" info="variable name"/>
+				<inputparameter parametertype="stringval" info="value"/>
+			</inputparameters>
+		</command>
+		<command name="-=" info="Decrements variable by a given value">
+			<inputparameters>
+				<inputparameter parametertype="continuousvar" info="variable name"/>
+				<inputparameter parametertype="stringval" info="value"/>
+			</inputparameters>
+		</command>
+		<command name="*=" info="Multiplies variable by a given value">
+			<inputparameters>
+				<inputparameter parametertype="continuousvar" info="variable name"/>
+				<inputparameter parametertype="stringval" info="value"/>
+			</inputparameters>
+		</command>
+		<command name="/=" info="Divides variable by a given value">
+			<inputparameters>
+				<inputparameter parametertype="continuousvar" info="variable name"/>
+				<inputparameter parametertype="stringval" info="value"/>
+			</inputparameters>
+		</command>
+		<command name="^=" info="Takes power of the variable by a given value">
+			<inputparameters>
+				<inputparameter parametertype="continuousvar" info="variable name"/>
+				<inputparameter parametertype="stringval" info="value"/>
+			</inputparameters>
+		</command>
+		<command name="$=" info="Takes $n$'th root of the variable where n is given in the second parameter">
+			<inputparameters>
+				<inputparameter parametertype="realvar" info="variable name"/>
+				<inputparameter parametertype="stringval" info="value"/>
+			</inputparameters>
+		</command>
+		<command name="@=" info="Takes mod of the variable by a given value">
+			<inputparameters>
+				<inputparameter parametertype="continuousvar" info="variable name"/>
+				<inputparameter parametertype="stringval" info="value"/>
+			</inputparameters>
+		</command>
+		<command name="if" info="Starts an if statement">
+			<inputparameters>
+				<inputparameter parametertype="compoperator" info="comparison operand"/>
+				<inputparameter parametertype="anyvar" info="operator"/>
+				<inputparameter parametertype="stringval" info="value"/>
+			</inputparameters>
+		</command>
+		<command name="else" info="Starts else part of an if statement">
+		</command>
+		<command name="endif" info="Ends an if statement">
+		</command>
+		<command name="while" info="Starts a while loop">
+			<inputparameters>
+				<inputparameter parametertype="compoperator" info="comparison operand"/>
+				<inputparameter parametertype="anyvar" info="operator"/>
+				<inputparameter parametertype="stringval" info="value"/>
+			</inputparameters>
+		</command>
+		<command name="endwhile" info="Ends a while loop">
+		</command>
+	</category>
+	<category name="LANGUAGE_FUNCTIONS">
+		<command name="loadFile" info="you can load a batch file of commands for current environment">
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="parameters"/>
+			</inputparameters>
+		</command>
+		<command name="viewFile" info="Prints the given file to screen">
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="filename"/>
+			</inputparameters>
+		</command>
+		<command name="openFile" info="Opens the user file with the given variable name. Before opening the file, the name of the file must be given by using = operator">
+			<inputparameters>
+				<inputparameter parametertype="filevar" info="variable name"/>
+				<inputparameter parametertype="stringval" info="filetype must be w for writing to file or r for reading from file"/>
+			</inputparameters>
+		</command>
+		<command name="closeFile" info="Closes the user file with the given variable name">
+			<inputparameters>
+				<inputparameter parametertype="filevar" info="variable name"/>
+			</inputparameters>
+		</command>
+		<command name="writeFile" info="Write a value to the given user file">
+			<inputparameters>
+				<inputparameter parametertype="filevar" info="variable name"/>
+				<inputparameter parametertype="stringval" info="value"/>
+			</inputparameters>
+		</command>
+		<command name="readFile" info="Reads one line from the userfile and puts it in the string variable">
+			<inputparameters>
+				<inputparameter parametertype="filevar" info="variable name"/>
+				<inputparameter parametertype="anyvar" info="any variable"/>
+			</inputparameters>
+		</command>
+		<command name="tokenize" info="Returns tokens in the aout1 array and number of tokens in the out1 variable">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="integerval" info="number of tokens"/>
+				<outputparameter name="aout1" parametertype="stringvaln" info="Tokens in the string. Stored as an array"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="stringvar" info="string variable"/>
+				<inputparameter parametertype="stringval" info="separator characters"/>
+			</inputparameters>
+		</command>
+		<command name="characterCount" info="Counts number of occurrences of char in the string variable and returns the count in out1 variable">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="integerval" info="number of occurences of the char"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="stringvar" info="string variable"/>
+				<inputparameter parametertype="stringval" info="char"/>
+			</inputparameters>
+		</command>
+		<command name="length" info="Returns the length of the string variable to out1 default variable">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="integerval" info="length of the string"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="stringvar" info="string variable"/>
+			</inputparameters>
+		</command>
+		<command name="charAt" info="Returns the char in the index position in the string variable">
+			<outputparameters>
+				<outputparameter name="sout1" parametertype="stringval" info="char at the given position"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="stringvar" info="string variable"/>
+				<inputparameter parametertype="integerval" info="integer"/>
+			</inputparameters>
+		</command>
+		<command name="compile" info="You can compile and check for warnings or errors of any ISELL file">
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="file name"/>
+			</inputparameters>
+		</command>
+		<command name="readArrayFile" info="Reads an array from file">
+			<inputparameters>
+				<inputparameter parametertype="filevar" info="variable name"/>
+				<inputparameter parametertype="anyvar" info="string variable"/>
+				<inputparameter parametertype="integerval" info="array size"/>
+			</inputparameters>
+		</command>
+	</category>
+	<category name="STATISTICAL_TESTS">
+		<command name="combined5x2F" info="Compares two data according to the parametric 5x2 f test. Sets first output variable 0 if both datasets have the same mean, 1 otherwise. Sets second output variable to the confidence level of the test result.">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="realval" info="0 if they have the same mean -1 if the first algorithm has better score 1 if the second algorithm has better score"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="filename1"/>
+				<inputparameter parametertype="stringval" info="filename2"/>
+			</inputparameters>
+		</command>
+		<command name="pairedt" info="Compares two data according to the k fold cv paired t test. Sets first output variable 0 if both datasets have the same mean, 1 otherwise. Sets second output variable to the confidence level of the test result.">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="realval" info="0 if they have the same mean  -1 if the first algorithm has better score 1 if the second algorithm has better score"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="filename1"/>
+				<inputparameter parametertype="stringval" info="filename2"/>
+			</inputparameters>
+		</command>
+		<command name="paired5x2t" info="Compares two data according to the 5x2 cv paired t test. Sets first output variable 0 if both datasets have the same mean, 1 otherwise. Sets second output variable to the confidence level of the test result.">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="realval" info="0 if they have the same mean  -1 if the first algorithm has better score 1 if the second algorithm has better score"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="filename1"/>
+				<inputparameter parametertype="stringval" info="filename2"/>
+			</inputparameters>
+		</command>
+		<command name="combined5x2t" info="Compares two data according to the parametric combined 5x2 t test test. Sets first output variable 0 if both datasets have the same mean, 1 otherwise. Sets second output variable to the confidence level of the test result.">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="realval" info="0 if they have the same mean  -1 if the first algorithm has better score 1 if the second algorithm has better score"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="filename1"/>
+				<inputparameter parametertype="stringval" info="filename2"/>
+			</inputparameters>
+		</command>
+		<command name="sign" info="Makes sign test">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="realval" info="0 if they have the same mean  -1 if the first algorithm has better score 1 if the second algorithm has better score"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="stringval" info="filename1"/>
+				<inputparameter parametertype="stringval" info="filename2"/>
+			</inputparameters>
+		</command>
+	</category>
+	<category name="DISTRIBUTIONS">
+		<command name="normal" info="Displays probability for a given critical value for normal distribution">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="realval" info="confidence level of the given critical value"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="realval" info="critical value"/>
+			</inputparameters>
+		</command>
+		<command name="normalinv" info="Displays critical value for a given probability value for normal distribution">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="realval" info="critical value of the given confidence level"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="realval" info="probability"/>
+			</inputparameters>
+		</command>
+		<command name="chi" info="Displays probability for a given critical value for chisquare distribution">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="realval" info="confidence level of the given critical value"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="realval" info="critical value"/>
+				<inputparameter parametertype="integerval" info="freedom"/>
+			</inputparameters>
+		</command>
+		<command name="chiinv" info="Displays critical value for a given probability value for chi-square distribution">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="realval" info="critical value of the given confidence level"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="realval" info="probability"/>
+				<inputparameter parametertype="integerval" info="freedom"/>
+			</inputparameters>
+		</command>
+		<command name="f" info="Displays probability for a given critical value for f distribution">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="realval" info="confidence level of the given critical value"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="realval" info="critical value"/>
+				<inputparameter parametertype="integerval" info="freedom1"/>
+				<inputparameter parametertype="integerval" info="freedom2"/>
+			</inputparameters>
+		</command>
+		<command name="finv" info="Displays critical value for a given probability value for f distribution">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="realval" info="critical value of the given confidence level"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="realval" info="probability"/>
+				<inputparameter parametertype="integerval" info="freedom1"/>
+				<inputparameter parametertype="integerval" info="freedom2"/>
+			</inputparameters>
+		</command>
+		<command name="t" info="Displays probability for a given critical value for t distribution">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="realval" info="confidence level of the given critical value"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="realval" info="critical value"/>
+				<inputparameter parametertype="integerval" info="freedom"/>
+			</inputparameters>
+		</command>
+		<command name="tinv" info="Displays critical value for a given probability value for t distribution">
+			<outputparameters>
+				<outputparameter name="out1" parametertype="realval" info="critical value of the given confidence level"/>
+			</outputparameters>
+			<inputparameters>
+				<inputparameter parametertype="realval" info="probability"/>
+				<inputparameter parametertype="integerval" info="freedom"/>
+			</inputparameters>
+		</command>	
+	</category>
+</commands>

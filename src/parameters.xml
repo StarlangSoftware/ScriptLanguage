@@ -1,0 +1,45 @@
+<parameters>
+	<parameter name="epoch" type="INTEGER" value="10"/>
+	<parameter name="numberOfFolds" type="INTEGER" value="10"/>
+	<parameter name="numberOfRuns" type="INTEGER" value="1"/>
+	<parameter name="neighborCount" type="INTEGER" value="1"/>
+	<parameter name="polynomDegree" type="INTEGER" value="1"/>
+	<parameter name="oneTailed" type="ONOFF" value="ON"/>
+	<parameter name="featureSize" type="INTEGER" value="2"/>
+	<parameter name="ensembleSize" type="INTEGER" value="100"/>
+	<parameter name="randomSeed" type="INTEGER" value="0"/>
+	<parameter name="ensembleSize" type="INTEGER" value="100"/>
+	<parameter name="learningRate" type="REAL" value="0.10"/>
+	<parameter name="varianceExplained" type="REAL" value="0.99"/>
+	<parameter name="confidenceLevel" type="REAL" value="0.05"/>
+	<parameter name="etaDecrease" type="REAL" value="0.95"/>
+	<parameter name="svmGamma" type="REAL" value="1.00"/>
+	<parameter name="svmCoef0" type="REAL" value="0.00"/>
+	<parameter name="svmC" type="REAL" value="1.00"/>
+	<parameter name="crossValidationRatio" type="REAL" value="0.20"/>
+	<parameter name="displayAccuracy" type="ONOFF" value="OFF"/>
+	<parameter name="dataDirectory" type="STRING" value="Data/Classification/"/>
+	<parameter name="kernelType" type="LIST" value="linear">
+		<value>linear</value>
+		<value>polynom</value>
+		<value>rbf</value>
+		<value>sigmoid</value>
+	</parameter>
+	<parameter name="distanceMetric" type="LIST" value="euclidian">
+		<value>euclidian</value>
+		<value>mahalanobis</value>
+	</parameter>
+	<parameter name="testType" type="LIST" value="combined5x2f">
+		<value>combined5x2f</value>
+		<value>combined5x2t</value>
+		<value>paired5x2t</value>
+		<value>pairedt</value>
+		<value>sign</value>
+		<value>no</value>
+	</parameter>
+	<parameter name="dimensionReductionType" type="LIST" value="feature">
+		<value>feature</value>
+		<value>variance</value>
+	</parameter>
+	<parameter name="hiddenNodes" type="ARRAY" subtype="INTEGER" size="3" value="1"/>
+</parameters>
