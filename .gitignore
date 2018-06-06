@@ -53,3 +53,6 @@ nb-configuration.xml
 release.properties
 pom.xml.releaseBackup
 pom.xml.tag
+out/artifacts/ScriptLanguage_jar/ScriptLanguage.jar
+out/production/ScriptLanguage/language.xml
+out/production/ScriptLanguage/parameters.xml
