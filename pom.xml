@@ -30,4 +30,11 @@
         </dependency>
     </dependencies>
 
+    <distributionManagement>
+        <repository>
+            <id>NlpToolkit</id>
+            <url>http://haydut.isikun.edu.tr:8081/artifactory/NlpToolkit</url>
+        </repository>
+    </distributionManagement>
+
 </project>
