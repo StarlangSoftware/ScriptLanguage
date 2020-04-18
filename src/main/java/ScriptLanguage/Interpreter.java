@@ -59,9 +59,9 @@ public class Interpreter {
                 return new C45Parameter(randomSeed, true, (Double) programParameters.getParameterValue("crossValidationRatio"));
             case "rocchio":
                 if (programParameters.getParameterValue("distanceMetric").equals("euclidian")){
-                    return new RocchioParameter(randomSeed, new EuclidianDistance());
+                    return new KMeansParameter(randomSeed, new EuclidianDistance());
                 } else {
-                    return new RocchioParameter(randomSeed, null);
+                    return new KMeansParameter(randomSeed, null);
                 }
             case "linearPerceptron":
                 return new LinearPerceptronParameter(randomSeed,
