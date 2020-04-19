@@ -84,8 +84,8 @@ ScriptLanguage
 
 ### Maven Usage
 
-	<dependency>
-  	<groupId>NlpToolkit</groupId>
-  	<artifactId>ScriptLanguage</artifactId>
-  	<version>1.0.0</version>
-	</dependency>
+        <dependency>
+            <groupId>io.github.starlangsoftware</groupId>
+            <artifactId>ScriptLanguage</artifactId>
+            <version>1.0.0</version>
+        </dependency>
