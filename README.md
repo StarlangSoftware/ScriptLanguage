@@ -1,4 +1,3 @@
-# ScriptLanguage
 For Developers
 ============
 
